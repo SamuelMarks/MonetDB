@@ -18,7 +18,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#ifdef __MUSL__
+#include <fcntl.h>
+#else
 #include <sys/fcntl.h>
+#endif
 #include <sys/stat.h>
 #include <sys/types.h>
 #include <time.h>

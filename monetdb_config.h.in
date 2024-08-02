@@ -82,6 +82,21 @@
 #define WIN32 1
 #endif
 
+/* MUSL detection */
+#ifndef _GNU_SOURCE
+    #define _GNU_SOURCE
+    #include <features.h>
+    #ifndef __USE_GNU
+        #define __MUSL__
+    #endif
+    #undef _GNU_SOURCE
+#else
+    #include <features.h>
+    #ifndef __USE_GNU
+        #define __MUSL__
+    #endif
+#endif
+
 // Section: monetdb configure defines
 #cmakedefine HAVE_DISPATCH_DISPATCH_H 1
 #cmakedefine HAVE_DLFCN_H 1

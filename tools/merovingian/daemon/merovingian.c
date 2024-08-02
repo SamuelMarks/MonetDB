@@ -92,6 +92,14 @@
 #define pipe2(pipefd, flags)	pipe(pipefd)
 #endif
 
+#ifndef S_IRWXG
+#define S_IRWXG 0070
+#endif
+
+#ifndef S_IRWXO
+#define S_IRWXO 0007
+#endif
+
 /* private structs */
 
 typedef struct _threadlist {
