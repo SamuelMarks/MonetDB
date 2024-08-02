@@ -10,6 +10,6 @@ RUN cmake -S . -B build && \
 
 FROM alpine AS runner
 COPY --from=builder /usr/local /usr/local
-RUN apk add --no-cache bzip2-dev lz4-libs openssl-dev xz-dev zlib-dev
+RUN apk add --no-cache libbz2 lz4-libs xz-libs
 
 ENTRYPOINT ["/usr/local/bin/monetdb", "--version"]
